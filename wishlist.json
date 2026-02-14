@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-14T01:40:00Z",
+  "updated": "2026-02-14T01:45:00Z",
   "items": [
     {
       "id": "camera-extrinsic-calibration",
@@ -32,6 +32,18 @@
       "category": "model",
       "requested_by": "tidybot",
       "reason": "Currently there is no automated way to compute stable grasp poses for arbitrary objects. Perception models like YOLO and Grounded SAM 2 can detect and segment objects, but translating that into a feasible end-effector pose for the Franka gripper requires a dedicated grasp generation model. GraspGen closes this gap in the pick-and-place pipeline.",
+      "votes": 1,
+      "status": "pending",
+      "assigned": null,
+      "completed_at": null
+    },
+    {
+      "id": "foundation-stereo",
+      "name": "FoundationStereo",
+      "description": "Host FoundationStereo as a backend service for high-quality stereo depth estimation. Accepts a pair of rectified stereo images (left + right) and returns a dense disparity map and/or metric depth map. Should generalize zero-shot across diverse scenes without per-dataset fine-tuning. Output should include depth in meters aligned to the left camera frame.",
+      "category": "model",
+      "requested_by": "tidybot",
+      "reason": "RealSense IR stereo depth is noisy on reflective and transparent surfaces commonly found in tabletop manipulation (e.g., glass, plastic wrap, metallic objects). FoundationStereo provides learned stereo matching that handles these failure cases, giving more reliable depth for downstream tasks like grasp generation and 3D segmentation.",
       "votes": 1,
       "status": "pending",
       "assigned": null,
