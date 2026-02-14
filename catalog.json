@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-14T06:58:00Z",
+  "updated": "2026-02-14T07:10:00Z",
   "capabilities": {
     "yolo-detection": {
       "type": "model",
@@ -41,6 +41,25 @@
       "models": [
         "grounding-dino-tiny",
         "sam2.1-hiera-large"
+      ],
+      "added_by": "steve",
+      "added_at": "2026-02-14",
+      "version": "0.1.0"
+    },
+    "graspgen": {
+      "type": "model",
+      "description": "6-DOF grasp pose generation using Contact-GraspNet. Accepts depth images (optionally with object mask) and returns ranked candidate grasp poses as 4x4 homogeneous transforms with quality scores. Suitable for direct use with Franka arm.",
+      "service_repo": "https://github.com/TidyBot-Services/graspgen-service",
+      "client_sdk": "https://raw.githubusercontent.com/TidyBot-Services/graspgen-service/main/client.py",
+      "api_docs": "https://github.com/TidyBot-Services/graspgen-service/blob/main/README.md",
+      "host": "http://158.130.109.188:8002",
+      "endpoints": [
+        "GET /health",
+        "POST /generate",
+        "GET /docs"
+      ],
+      "models": [
+        "contact-graspnet-pytorch"
       ],
       "added_by": "steve",
       "added_at": "2026-02-14",
