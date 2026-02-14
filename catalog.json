@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-13T21:50:00Z",
+  "updated": "2026-02-14T06:58:00Z",
   "capabilities": {
     "yolo-detection": {
       "type": "model",
@@ -13,10 +13,38 @@
         "POST /detect",
         "GET /docs"
       ],
-      "models": ["yolov8n", "yolov8s", "yolov8m", "yolov8l", "yolov8x", "yolov8n-seg", "yolov8s-seg"],
+      "models": [
+        "yolov8n",
+        "yolov8s",
+        "yolov8m",
+        "yolov8l",
+        "yolov8x",
+        "yolov8n-seg",
+        "yolov8s-seg"
+      ],
       "added_by": "steve",
       "added_at": "2026-02-13",
       "version": "0.2.0"
+    },
+    "grounded-sam2": {
+      "type": "model",
+      "description": "Open-vocabulary object detection (Grounding DINO) + segmentation (SAM 2). Accepts images and text prompts, returns bounding boxes, segmentation masks, and confidence scores.",
+      "service_repo": "https://github.com/TidyBot-Services/grounded-sam2-service",
+      "client_sdk": "https://raw.githubusercontent.com/TidyBot-Services/grounded-sam2-service/main/client.py",
+      "api_docs": "https://github.com/TidyBot-Services/grounded-sam2-service/blob/main/README.md",
+      "host": "http://158.130.109.188:8001",
+      "endpoints": [
+        "GET /health",
+        "POST /detect",
+        "GET /docs"
+      ],
+      "models": [
+        "grounding-dino-tiny",
+        "sam2.1-hiera-large"
+      ],
+      "added_by": "steve",
+      "added_at": "2026-02-14",
+      "version": "0.1.0"
     }
   }
 }

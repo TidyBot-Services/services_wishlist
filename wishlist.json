@@ -19,10 +19,10 @@
       "description": "Host Grounded SAM 2 as a backend service for open-vocabulary object detection and segmentation. Accepts an image and text prompts (e.g., 'red cup', 'screwdriver') and returns bounding boxes, segmentation masks, and confidence scores for the described objects. Should support both bounding-box detection (via Grounding DINO) and fine-grained mask segmentation (via SAM 2).",
       "category": "model",
       "requested_by": "tidybot",
-      "reason": "YOLO detection is limited to its fixed class vocabulary. For real-world manipulation tasks we need open-vocabulary perception — the ability to detect and segment arbitrary objects described in natural language. Grounded SAM 2 enables this by combining Grounding DINO's text-conditioned detection with SAM 2's high-quality segmentation.",
+      "reason": "YOLO detection is limited to its fixed class vocabulary. For real-world manipulation tasks we need open-vocabulary perception \u2014 the ability to detect and segment arbitrary objects described in natural language. Grounded SAM 2 enables this by combining Grounding DINO's text-conditioned detection with SAM 2's high-quality segmentation.",
       "votes": 1,
-      "status": "pending",
-      "assigned": null,
+      "status": "building",
+      "assigned": "steve",
       "completed_at": null
     },
     {
