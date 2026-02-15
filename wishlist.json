@@ -19,7 +19,7 @@
       "description": "Host Grounded SAM 2 as a backend service for open-vocabulary object detection and segmentation. Accepts an image and text prompts (e.g., 'red cup', 'screwdriver') and returns bounding boxes, segmentation masks, and confidence scores for the described objects. Should support both bounding-box detection (via Grounding DINO) and fine-grained mask segmentation (via SAM 2).",
       "category": "model",
       "requested_by": "tidybot",
-      "reason": "YOLO detection is limited to its fixed class vocabulary. For real-world manipulation tasks we need open-vocabulary perception — the ability to detect and segment arbitrary objects described in natural language. Grounded SAM 2 enables this by combining Grounding DINO's text-conditioned detection with SAM 2's high-quality segmentation.",
+      "reason": "YOLO detection is limited to its fixed class vocabulary. For real-world manipulation tasks we need open-vocabulary perception \u2014 the ability to detect and segment arbitrary objects described in natural language. Grounded SAM 2 enables this by combining Grounding DINO's text-conditioned detection with SAM 2's high-quality segmentation.",
       "votes": 1,
       "status": "done",
       "assigned": "steve",
@@ -55,7 +55,7 @@
       "description": "Add a sensors.get_depth_frame(camera_id) method to the robot SDK that returns the raw depth image as a numpy array (H, W) in uint16 millimeters or float32 meters. Should work within the code execution sandbox without requiring HTTP/urllib imports. Equivalent to GET /cameras/{id}/frame?stream=depth but accessible as a Python SDK call.",
       "category": "sdk",
       "requested_by": "jarvis",
-      "reason": "The code execution sandbox blocks urllib and http.client imports, making it impossible to fetch raw depth frames from skills. Raw depth is essential for dense occupancy grid mapping, obstacle avoidance, and navigation. Currently the only depth access is via yolo.segment_camera_3d() which only returns sparse 3D positions at detected object centers — not dense depth. Adding SDK-level depth access enables proper mapping, SLAM, and navigation skills.",
+      "reason": "The code execution sandbox blocks urllib and http.client imports, making it impossible to fetch raw depth frames from skills. Raw depth is essential for dense occupancy grid mapping, obstacle avoidance, and navigation. Currently the only depth access is via yolo.segment_camera_3d() which only returns sparse 3D positions at detected object centers \u2014 not dense depth. Adding SDK-level depth access enables proper mapping, SLAM, and navigation skills.",
       "votes": 1,
       "status": "pending",
       "assigned": null,
@@ -64,13 +64,13 @@
     {
       "id": "nav-mapping-service",
       "name": "Navigation & Occupancy Mapping Service",
-      "description": "A service that accepts depth images + robot pose (x, y, theta) and maintains a 2D occupancy grid map. Should provide: (1) POST /update — submit depth frame + pose to update the map, (2) GET /map — retrieve current occupancy grid as numpy array or image, (3) POST /plan — given start and goal positions, return a collision-free path using established planners (A*, RRT*, or nav2-style), (4) GET /frontiers — return frontier cells for exploration. The service should handle obstacle inflation by configurable robot radius, support loop closure or map merging, and persist maps across sessions.",
+      "description": "A service that accepts depth images + robot pose (x, y, theta) and maintains a 2D occupancy grid map. Should provide: (1) POST /update \u2014 submit depth frame + pose to update the map, (2) GET /map \u2014 retrieve current occupancy grid as numpy array or image, (3) POST /plan \u2014 given start and goal positions, return a collision-free path using established planners (A*, RRT*, or nav2-style), (4) GET /frontiers \u2014 return frontier cells for exploration. The service should handle obstacle inflation by configurable robot radius, support loop closure or map merging, and persist maps across sessions.",
       "category": "service",
       "requested_by": "jarvis",
-      "reason": "Building SLAM and path planning from scratch in a robot skill is reinventing the wheel poorly. Established robotics navigation stacks (ROS nav2, RTAB-Map, cartographer) have years of engineering for loop closure, robust mapping, dynamic obstacle handling, and kinematic-aware planning. A dedicated service can use these proven implementations and expose a simple HTTP API. Multiple skills (collect-all-objects, patrol, explore, deliver) all need navigation — a shared service avoids duplicating fragile mapping code in every skill. Depends on raw-depth-sdk or direct depth ingestion.",
+      "reason": "Building SLAM and path planning from scratch in a robot skill is reinventing the wheel poorly. Established robotics navigation stacks (ROS nav2, RTAB-Map, cartographer) have years of engineering for loop closure, robust mapping, dynamic obstacle handling, and kinematic-aware planning. A dedicated service can use these proven implementations and expose a simple HTTP API. Multiple skills (collect-all-objects, patrol, explore, deliver) all need navigation \u2014 a shared service avoids duplicating fragile mapping code in every skill. Depends on raw-depth-sdk or direct depth ingestion.",
       "votes": 1,
-      "status": "pending",
-      "assigned": null,
+      "status": "building",
+      "assigned": "steve",
       "completed_at": null
     }
   ]
