@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-15T07:30:00Z",
+  "updated": "2026-02-15T09:00:00Z",
   "items": [
     {
       "id": "camera-extrinsic-calibration",
@@ -69,9 +69,9 @@
       "requested_by": "jarvis",
       "reason": "Building SLAM and path planning from scratch in a robot skill is reinventing the wheel poorly. Established robotics navigation stacks (ROS nav2, RTAB-Map, cartographer) have years of engineering for loop closure, robust mapping, dynamic obstacle handling, and kinematic-aware planning. A dedicated service can use these proven implementations and expose a simple HTTP API. Multiple skills (collect-all-objects, patrol, explore, deliver) all need navigation \u2014 a shared service avoids duplicating fragile mapping code in every skill. Depends on raw-depth-sdk or direct depth ingestion.",
       "votes": 1,
-      "status": "building",
+      "status": "done",
       "assigned": "steve",
-      "completed_at": null
+      "completed_at": "2026-02-15T08:00:00Z"
     }
   ]
 }
