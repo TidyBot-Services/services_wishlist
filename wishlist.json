@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-16T07:02:20Z",
+  "updated": "2026-02-16T07:15:02Z",
   "items": [
     {
       "id": "camera-extrinsic-calibration",
@@ -84,6 +84,18 @@
       "status": "done",
       "assigned": "steve",
       "completed_at": "2026-02-16T07:02:20Z"
+    },
+    {
+      "id": "lightweight-grasp-net",
+      "name": "Lightweight RGB-D Grasp Detection",
+      "description": "Deploy a lightweight, real-time grasp detection model that takes RGB-D input from RealSense cameras and outputs ranked parallel-jaw grasp candidates (position, angle, width, quality). Candidates include GR-ConvNet v2 (~20ms inference, ResNet-based), graspness/graspnet-baseline (point cloud based, has RealSense-trained checkpoints), or AnyGrasp SDK. Should expose a simple API: POST an RGB-D image pair, get back grasp poses. Unlike the existing GraspGen (diffusion-based, heavier), this should prioritize low latency (<50ms) for closed-loop grasping and run comfortably on a single GPU alongside other services.",
+      "category": "model",
+      "requested_by": "jarvis",
+      "reason": "GraspGen is available but diffusion-based models are heavier and slower. For real-time closed-loop grasping \u2014 where the robot needs to re-evaluate grasps as it approaches \u2014 we need something that runs in under 50ms. GR-ConvNet v2 does 14-20ms inference on RGB-D, graspnet-baseline has pretrained RealSense checkpoints, and AnyGrasp offers a ready-made SDK. A lightweight grasp service would complement the existing visual servoing skills by providing smarter grasp pose selection instead of relying on fixed approach angles.",
+      "votes": 1,
+      "status": "pending",
+      "assigned": null,
+      "completed_at": null
     }
   ]
 }
