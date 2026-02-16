@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-16T07:15:02Z",
+  "updated": "2026-02-16T07:19:08Z",
   "items": [
     {
       "id": "camera-extrinsic-calibration",
@@ -92,6 +92,18 @@
       "category": "model",
       "requested_by": "jarvis",
       "reason": "GraspGen is available but diffusion-based models are heavier and slower. For real-time closed-loop grasping \u2014 where the robot needs to re-evaluate grasps as it approaches \u2014 we need something that runs in under 50ms. GR-ConvNet v2 does 14-20ms inference on RGB-D, graspnet-baseline has pretrained RealSense checkpoints, and AnyGrasp offers a ready-made SDK. A lightweight grasp service would complement the existing visual servoing skills by providing smarter grasp pose selection instead of relying on fixed approach angles.",
+      "votes": 1,
+      "status": "pending",
+      "assigned": null,
+      "completed_at": null
+    },
+    {
+      "id": "local-obstacle-avoidance",
+      "name": "Local Base Obstacle Avoidance",
+      "description": "Real-time local obstacle avoidance for the mobile base using the front-facing RealSense D435 depth camera. Projects depth into a 2D costmap slice at base height, detects obstacles, and either provides a reactive velocity command (e.g., VFH, DWA) or a short local path that avoids them. Should run as a lightweight service or SDK module that: (1) continuously consumes depth from base_cam, (2) maintains a local 2D costmap (~3-5m range), (3) given a target velocity or waypoint, outputs a safe velocity command that avoids obstacles, (4) provides emergency stop when obstacles are too close. No global map needed \u2014 purely reactive/local planning.",
+      "category": "service",
+      "requested_by": "jarvis",
+      "reason": "The base currently drives blind \u2014 move_to_pose and move_delta have no awareness of obstacles. The front-facing RealSense base_cam already provides depth that can be projected into a 2D slice for obstacle detection. A local planner (DWA or VFH) running at 10-30Hz on the depth stream would let the base navigate safely around chairs, tables, and people without needing a full SLAM map. This is the minimum viable safety layer for autonomous base movement.",
       "votes": 1,
       "status": "pending",
       "assigned": null,
