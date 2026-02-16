@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-16T03:57:58Z",
+  "updated": "2026-02-16T07:02:20Z",
   "capabilities": {
     "yolo-detection": {
       "type": "model",
@@ -122,6 +122,32 @@
         "import": "from service_clients.nav_mapping.client import NavMappingClient",
         "example": "client = NavMappingClient()\nclient.update(depth_bytes, pose=(x, y, theta), intrinsics=(fx, fy, cx, cy))",
         "returns": "Dict with update status, timing"
+      }
+    },
+    "realsense-slam": {
+      "type": "service",
+      "description": "Visual SLAM using Open3D ICP + OpenCV features. Provides 6-DOF pose estimation, incremental 3D point cloud mapping, 2D occupancy grid projection, and map persistence.",
+      "service_repo": "https://github.com/TidyBot-Services/realsense-slam",
+      "client_sdk": "https://raw.githubusercontent.com/TidyBot-Services/realsense-slam/master/client.py",
+      "api_docs": "https://github.com/TidyBot-Services/realsense-slam/blob/master/README.md",
+      "host": "http://158.130.109.188:8005",
+      "endpoints": [
+        "GET /health",
+        "POST /update",
+        "GET /pose",
+        "GET /map/pointcloud",
+        "GET /map/occupancy",
+        "POST /map/save",
+        "POST /map/load",
+        "POST /reset"
+      ],
+      "added_by": "steve",
+      "added_at": "2026-02-16",
+      "version": "0.1.0",
+      "usage": {
+        "import": "from client import SLAMClient",
+        "example": "client = SLAMClient()\nclient.update(rgb_bytes, depth_bytes, intrinsics=(fx, fy, cx, cy))\npose = client.get_pose()",
+        "returns": "Dict with 6-DOF pose (translation, quaternion, euler, matrix)"
       }
     }
   }

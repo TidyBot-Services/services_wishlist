@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-16T06:46:32Z",
+  "updated": "2026-02-16T07:02:20Z",
   "items": [
     {
       "id": "camera-extrinsic-calibration",
@@ -81,9 +81,9 @@
       "requested_by": "jarvis",
       "reason": "The nav-mapping-service provides path planning on a given map, but we lack a proper visual SLAM frontend that continuously builds and maintains that map from raw sensor data. RTAB-Map has first-class RealSense support, handles loop closure, and can run standalone without ROS. This would give the robot persistent spatial awareness \u2014 knowing where it is in the room and what the environment looks like \u2014 which is foundational for autonomous navigation, multi-room tasks, and returning to known locations.",
       "votes": 1,
-      "status": "building",
+      "status": "done",
       "assigned": "steve",
-      "completed_at": null
+      "completed_at": "2026-02-16T07:02:20Z"
     }
   ]
 }
