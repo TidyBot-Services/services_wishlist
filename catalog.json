@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-16T07:02:20Z",
+  "updated": "2026-02-16T08:03:00Z",
   "capabilities": {
     "yolo-detection": {
       "type": "model",
@@ -148,6 +148,30 @@
         "import": "from client import SLAMClient",
         "example": "client = SLAMClient()\nclient.update(rgb_bytes, depth_bytes, intrinsics=(fx, fy, cx, cy))\npose = client.get_pose()",
         "returns": "Dict with 6-DOF pose (translation, quaternion, euler, matrix)"
+      }
+    },
+    "local-obstacle-avoidance": {
+      "type": "service",
+      "description": "Real-time local obstacle avoidance using depth images. Maintains a local 2D costmap (~3-5m range) and provides safe velocity commands via Dynamic Window Approach (DWA). Includes e-stop when obstacles are too close.",
+      "service_repo": "https://github.com/TidyBot-Services/local-obstacle-avoidance-service",
+      "client_sdk": "https://raw.githubusercontent.com/TidyBot-Services/local-obstacle-avoidance-service/master/client.py",
+      "api_docs": "https://github.com/TidyBot-Services/local-obstacle-avoidance-service/blob/master/README.md",
+      "host": "http://158.130.109.188:8007",
+      "endpoints": [
+        "GET /health",
+        "POST /update_depth",
+        "POST /safe_velocity",
+        "GET /costmap",
+        "GET /estop_status"
+      ],
+      "added_by": "steve",
+      "added_at": "2026-02-16",
+      "version": "0.1.0",
+      "usage": {
+        "import": "from service_clients.local_obstacle_avoidance.client import ObstacleAvoidanceClient",
+        "init": "client = ObstacleAvoidanceClient()",
+        "example": "client.update_depth(depth_bytes, fx=615, fy=615, cx=320, cy=240)\ncmd = client.safe_velocity(target_vx=0.3)",
+        "returns": "Dict with safe_vx, safe_omega, estop_active"
       }
     }
   }
