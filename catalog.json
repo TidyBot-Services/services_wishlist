@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-15T08:59:00Z",
+  "updated": "2026-02-16T03:57:58Z",
   "capabilities": {
     "yolo-detection": {
       "type": "model",
@@ -36,6 +36,7 @@
       "endpoints": [
         "GET /health",
         "POST /detect",
+        "POST /visualize",
         "GET /docs"
       ],
       "models": [
@@ -44,10 +45,10 @@
       ],
       "added_by": "steve",
       "added_at": "2026-02-14",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "usage": {
         "import": "from service_clients.grounded_sam2.client import GroundedSAM2Client",
-        "example": "client = GroundedSAM2Client()\ndetections = client.detect(image_bytes, prompts=['red cup'])",
+        "example": "client = GroundedSAM2Client()\ndetections = client.detect(image_bytes, prompts=['red cup'])\n# Visualize with bbox + mask overlay:\nclient.visualize('input.jpg', prompts=['red cup'], save_path='output.jpg')",
         "returns": "List of dicts with keys: label, confidence, bbox {x1,y1,x2,y2}"
       }
     },
