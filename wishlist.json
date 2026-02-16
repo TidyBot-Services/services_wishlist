@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-16T07:58:00Z",
+  "updated": "2026-02-16T08:04:16Z",
   "items": [
     {
       "id": "camera-extrinsic-calibration",
@@ -93,9 +93,9 @@
       "requested_by": "jarvis",
       "reason": "GraspGen is available but diffusion-based models are heavier and slower. For real-time closed-loop grasping \u2014 where the robot needs to re-evaluate grasps as it approaches \u2014 we need something that runs in under 50ms. GR-ConvNet v2 does 14-20ms inference on RGB-D, graspnet-baseline has pretrained RealSense checkpoints, and AnyGrasp offers a ready-made SDK. A lightweight grasp service would complement the existing visual servoing skills by providing smarter grasp pose selection instead of relying on fixed approach angles.",
       "votes": 1,
-      "status": "building",
+      "status": "done",
       "assigned": "steve",
-      "completed_at": null
+      "completed_at": "2026-02-16T08:04:16Z"
     },
     {
       "id": "local-obstacle-avoidance",
