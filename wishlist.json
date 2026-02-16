@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-15T09:00:00Z",
+  "updated": "2026-02-16T06:46:32Z",
   "items": [
     {
       "id": "camera-extrinsic-calibration",
@@ -72,6 +72,18 @@
       "status": "done",
       "assigned": "steve",
       "completed_at": "2026-02-15T08:00:00Z"
+    },
+    {
+      "id": "realsense-slam",
+      "name": "RealSense SLAM (RTAB-Map)",
+      "description": "Deploy RTAB-Map (or equivalent visual SLAM) as a persistent service on the robot, consuming RGB-D streams from the RealSense D400 cameras. Should provide: (1) real-time 6-DOF camera/robot pose estimation, (2) incremental 3D point cloud map, (3) 2D occupancy grid projection, (4) loop closure detection, (5) map save/load for persistent localization across sessions. Expose via HTTP API or SDK methods (e.g., slam.get_pose(), slam.get_map()). Should work out of the box with the existing base_cam and wrist_cam RealSense D435 cameras.",
+      "category": "service",
+      "requested_by": "jarvis",
+      "reason": "The nav-mapping-service provides path planning on a given map, but we lack a proper visual SLAM frontend that continuously builds and maintains that map from raw sensor data. RTAB-Map has first-class RealSense support, handles loop closure, and can run standalone without ROS. This would give the robot persistent spatial awareness \u2014 knowing where it is in the room and what the environment looks like \u2014 which is foundational for autonomous navigation, multi-room tasks, and returning to known locations.",
+      "votes": 1,
+      "status": "pending",
+      "assigned": null,
+      "completed_at": null
     }
   ]
 }
