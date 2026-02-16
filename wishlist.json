@@ -105,9 +105,9 @@
       "requested_by": "jarvis",
       "reason": "The base currently drives blind \u2014 move_to_pose and move_delta have no awareness of obstacles. The front-facing RealSense base_cam already provides depth that can be projected into a 2D slice for obstacle detection. A local planner (DWA or VFH) running at 10-30Hz on the depth stream would let the base navigate safely around chairs, tables, and people without needing a full SLAM map. This is the minimum viable safety layer for autonomous base movement.",
       "votes": 1,
-      "status": "building",
+      "status": "done",
       "assigned": "steve",
-      "completed_at": null
+      "completed_at": "2026-02-16T08:03:00Z"
     }
   ]
 }
