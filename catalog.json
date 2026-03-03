@@ -7,7 +7,7 @@
       "service_repo": "https://github.com/TidyBot-Services/yolo-service",
       "client_sdk": "https://raw.githubusercontent.com/TidyBot-Services/yolo-service/main/client.py",
       "api_docs": "https://github.com/TidyBot-Services/yolo-service/blob/main/README.md",
-      "host": "http://158.130.109.188:8000",
+      "host": "http://158.130.109.188:8010",
       "endpoints": [
         "GET /health",
         "POST /detect",
@@ -29,9 +29,9 @@
     "grounded-sam2": {
       "type": "model",
       "description": "Open-vocabulary object detection + segmentation. Accepts image + text prompts, returns bounding boxes, segmentation masks (PNG), and confidence scores. Uses Grounding DINO + SAM 2.",
-      "service_repo": "https://github.com/TidyBot-Services/grounded-sam2",
-      "client_sdk": "https://raw.githubusercontent.com/TidyBot-Services/grounded-sam2/main/client.py",
-      "api_docs": "https://github.com/TidyBot-Services/grounded-sam2/blob/main/README.md",
+      "service_repo": "https://github.com/TidyBot-Services/grounded-sam2-service",
+      "client_sdk": "https://raw.githubusercontent.com/TidyBot-Services/grounded-sam2-service/main/client.py",
+      "api_docs": "https://github.com/TidyBot-Services/grounded-sam2-service/blob/main/README.md",
       "host": "http://158.130.109.188:8001",
       "endpoints": [
         "GET /health",
